@@ -3,23 +3,26 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { Button } from './ui/button'
-import { PenBox } from 'lucide-react'
+import { BarChart3, PenBox } from 'lucide-react'
 import UserMenu from './UserMenu'
 
 const Header = () => {
   return (
-    <header className='container mx-auto'>
+    <header className='container h-18 mx-auto sticky top-5 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60'>
       <nav className='flex items-center justify-between'>
         <Link href="/">
-          <Image src="/logo.png" alt="Logo" width={300} height={10} className='h-24 w-auto object-contain' />
+          <div className="flex items-center gap-2 font-bold text-xl">
+            <Image src="/logo2.png" alt="logo" width={300} height={100} className='rounded-full h-16 w-16' />
+            <span className='text-2xl'>TaskForce</span>
+          </div>
         </Link>
 
         <div className='flex items-center gap-4 '>
           <Link href="/project/create">
-            <Button variant="destructive" className="flex items-center gap-2 cursor-pointer">
+            <Button variant="default" className="flex items-center gap-2 cursor-pointer">
               <PenBox size={18} />
               <span>
-                Create Project
+                Get Started
               </span>
             </Button>
           </Link>
