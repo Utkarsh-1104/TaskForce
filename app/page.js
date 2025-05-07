@@ -46,7 +46,7 @@ export default function LandingPage() {
             <div className="container px-4 md:px-6">
               <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
                 <div className="flex flex-col justify-center space-y-4">
-                  <div className="space-y-5">
+                  <div className="space-y-7">
                     <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
                       Manage projects with precision and ease
                     </h1>
@@ -57,12 +57,12 @@ export default function LandingPage() {
                   </div>
                   <div className="flex flex-col gap-2 min-[400px]:flex-row">
                     <Link href="/onboarding">
-                      <Button size="lg" className="px-8 cursor-pointer">
+                      <Button size="lg" className="px-8 text-base cursor-pointer">
                         Start for free
-                        <ArrowRight className="ml-2 h-4 w-4" />
+                        <ArrowRight className="ml-1 h-6 w-6" />
                       </Button>
                     </Link>
-                    <Button size="lg" variant="outline" className="px-8 cursor-pointer">
+                    <Button size="lg" variant="outline" className="px-8 text-base cursor-pointer">
                       Book a demo
                     </Button>
                   </div>
@@ -92,8 +92,8 @@ export default function LandingPage() {
             <div className="container px-4 md:px-6">
               <div className="flex flex-col items-center justify-center space-y-4 text-center">
                 <div className="space-y-2">
-                  <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">Features</div>
-                  <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
+                  <div className="inline-block rounded-lg bg-primary/10 px-3 py-2 text-base text-primary">Features</div>
+                  <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/">
                     Everything you need to manage projects
                   </h2>
                   <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">
@@ -232,7 +232,7 @@ export default function LandingPage() {
             <div className="container px-4 md:px-6">
               <div className="flex flex-col items-center justify-center space-y-4 text-center">
                 <div className="space-y-2">
-                  <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">
+                  <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-base text-primary">
                     Getting Started
                   </div>
                   <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">How TaskForce works</h2>
@@ -271,10 +271,12 @@ export default function LandingPage() {
                 </div>
               </div>
               <div className="flex justify-center">
-                <Button size="lg" className="px-8">
-                  Start your free trial
-                  <ChevronRight className="ml-2 h-4 w-4" />
-                </Button>
+                <Link href="/onboarding" >
+                  <Button size="lg" className="px-8 cursor-pointer">
+                    Start your free trial
+                    <ChevronRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
               </div>
             </div>
           </section>
@@ -284,7 +286,7 @@ export default function LandingPage() {
             <div className="container px-4 md:px-6">
               <div className="flex flex-col items-center justify-center space-y-4 text-center">
                 <div className="space-y-2">
-                  <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">Pricing</div>
+                  <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-base text-primary">Pricing</div>
                   <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Simple, transparent pricing</h2>
                   <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">
                     Choose the plan that's right for your team. All plans include a 14-day free trial.
@@ -319,7 +321,7 @@ export default function LandingPage() {
                       <span>24/7 support</span>
                     </li>
                   </ul>
-                  <Button className="mt-8" variant="outline">
+                  <Button className="mt-8 cursor-pointer"  variant="outline">
                     Start free trial
                   </Button>
                 </div>
@@ -357,7 +359,7 @@ export default function LandingPage() {
                       <span>Priority support</span>
                     </li>
                   </ul>
-                  <Button className="mt-8">Start free trial</Button>
+                  <Button className="mt-8 cursor-pointer">Start free trial</Button>
                 </div>
                 <div className="flex flex-col rounded-lg border bg-background p-6 shadow-sm">
                   <div className="space-y-2">
@@ -390,7 +392,7 @@ export default function LandingPage() {
                       <span>99.9% uptime SLA</span>
                     </li>
                   </ul>
-                  <Button className="mt-8" variant="outline">
+                  <Button className="mt-8 cursor-pointer"  variant="outline">
                     Contact sales
                   </Button>
                 </div>
@@ -414,7 +416,7 @@ export default function LandingPage() {
                   <Button size="lg" variant="secondary" className="px-8">
                     Start your free trial
                   </Button>
-                  <Button size="lg" variant="outline" className="border-primary-foreground px-8">
+                  <Button size="lg" variant="secondary" className="border-primary-foreground px-8">
                     Schedule a demo
                   </Button>
                 </div>
@@ -441,12 +443,12 @@ export default function LandingPage() {
                 <h4 className="font-medium">Product</h4>
                 <ul className="space-y-2 text-sm">
                   <li>
-                    <Link href="#" className="text-muted-foreground hover:text-foreground">
+                    <Link href="#features" className="text-muted-foreground hover:text-foreground">
                       Features
                     </Link>
                   </li>
                   <li>
-                    <Link href="#" className="text-muted-foreground hover:text-foreground">
+                    <Link href="#pricing" className="text-muted-foreground hover:text-foreground">
                       Pricing
                     </Link>
                   </li>
@@ -514,11 +516,11 @@ export default function LandingPage() {
               </div>
             </div>
             <div className="mt-8 border-t pt-8 flex flex-col md:flex-row justify-between items-center">
-              <p className="text-xs text-muted-foreground">
+              <p className="text-sm text-muted-foreground">
                 © {new Date().getFullYear()} TaskForce. All rights reserved.
               </p>
               <div className="flex gap-4 mt-4 md:mt-0">
-                <Link href="#" className="text-muted-foreground hover:text-foreground">
+                <Link href="https://x.com/Lone2104Wolf" target="_blank" className="text-muted-foreground hover:text-foreground">
                   <span className="sr-only">Twitter</span>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -554,7 +556,7 @@ export default function LandingPage() {
                     <circle cx="4" cy="4" r="2" />
                   </svg>
                 </Link>
-                <Link href="#" className="text-muted-foreground hover:text-foreground">
+                <Link href="https://www.github.com/Utkarsh-1104" target="_blank" className="text-muted-foreground hover:text-foreground">
                   <span className="sr-only">GitHub</span>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
