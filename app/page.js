@@ -2,6 +2,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { CheckCircle, BarChart3, Users, Calendar, MessageSquare, ArrowRight, ChevronRight } from "lucide-react"
+import CompanyCarousel from "@/components/CompanyCarousel"
 
 export default function LandingPage() {
   return (
@@ -45,7 +46,7 @@ export default function LandingPage() {
             <div className="container px-4 md:px-6">
               <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
                 <div className="flex flex-col justify-center space-y-4">
-                  <div className="space-y-2">
+                  <div className="space-y-5">
                     <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
                       Manage projects with precision and ease
                     </h1>
@@ -55,11 +56,13 @@ export default function LandingPage() {
                     </p>
                   </div>
                   <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                    <Button size="lg" className="px-8">
-                      Start for free
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                    <Button size="lg" variant="outline" className="px-8">
+                    <Link href="/onboarding">
+                      <Button size="lg" className="px-8 cursor-pointer">
+                        Start for free
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Button>
+                    </Link>
+                    <Button size="lg" variant="outline" className="px-8 cursor-pointer">
                       Book a demo
                     </Button>
                   </div>
@@ -69,9 +72,9 @@ export default function LandingPage() {
                   </div>
                 </div>
                 <div className="flex items-center justify-center">
-                  <div className="relative w-full h-[400px] overflow-hidden rounded-lg border bg-background p-2 shadow-xl">
+                  <div className="relative w-full h-[400px] overflow-hidden rounded-lg border bg-background p-2 shadow-2xl">
                     <Image
-                      src="/placeholder.svg?height=400&width=600"
+                      src="/hero.png"
                       alt="TaskForce Dashboard"
                       width={600}
                       height={400}
@@ -169,7 +172,8 @@ export default function LandingPage() {
                   </p>
                 </div>
               </div>
-              <div className="mx-auto grid max-w-5xl grid-cols-2 gap-8 py-12 md:grid-cols-4">
+              <CompanyCarousel />
+              {/* <div className="mx-auto grid max-w-5xl grid-cols-2 gap-8 py-12 md:grid-cols-4">
                 <div className="flex items-center justify-center">
                   <Image
                     src="/placeholder.svg?height=80&width=160"
@@ -206,7 +210,7 @@ export default function LandingPage() {
                     className="object-contain"
                   />
                 </div>
-              </div>
+              </div> */}
               <div className="mx-auto max-w-3xl border rounded-lg p-8 bg-muted/30">
                 <blockquote className="text-center text-xl italic text-muted-foreground">
                   "TaskForce has transformed how our team manages projects. We've increased productivity by 35% and
