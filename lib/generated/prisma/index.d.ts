@@ -60,7 +60,8 @@ export type IssueStatus = (typeof IssueStatus)[keyof typeof IssueStatus]
 export const IssuePriority: {
   LOW: 'LOW',
   MEDIUM: 'MEDIUM',
-  HIGH: 'HIGH'
+  HIGH: 'HIGH',
+  URGENT: 'URGENT'
 };
 
 export type IssuePriority = (typeof IssuePriority)[keyof typeof IssuePriority]
@@ -1309,9 +1310,9 @@ export namespace Prisma {
 
   export type UserMinAggregateOutputType = {
     id: string | null
-    name: string | null
-    clerkUseId: string | null
+    clerkUserId: string | null
     email: string | null
+    name: string | null
     imageUrl: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -1319,9 +1320,9 @@ export namespace Prisma {
 
   export type UserMaxAggregateOutputType = {
     id: string | null
-    name: string | null
-    clerkUseId: string | null
+    clerkUserId: string | null
     email: string | null
+    name: string | null
     imageUrl: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -1329,9 +1330,9 @@ export namespace Prisma {
 
   export type UserCountAggregateOutputType = {
     id: number
-    name: number
-    clerkUseId: number
+    clerkUserId: number
     email: number
+    name: number
     imageUrl: number
     createdAt: number
     updatedAt: number
@@ -1341,9 +1342,9 @@ export namespace Prisma {
 
   export type UserMinAggregateInputType = {
     id?: true
-    name?: true
-    clerkUseId?: true
+    clerkUserId?: true
     email?: true
+    name?: true
     imageUrl?: true
     createdAt?: true
     updatedAt?: true
@@ -1351,9 +1352,9 @@ export namespace Prisma {
 
   export type UserMaxAggregateInputType = {
     id?: true
-    name?: true
-    clerkUseId?: true
+    clerkUserId?: true
     email?: true
+    name?: true
     imageUrl?: true
     createdAt?: true
     updatedAt?: true
@@ -1361,9 +1362,9 @@ export namespace Prisma {
 
   export type UserCountAggregateInputType = {
     id?: true
-    name?: true
-    clerkUseId?: true
+    clerkUserId?: true
     email?: true
+    name?: true
     imageUrl?: true
     createdAt?: true
     updatedAt?: true
@@ -1444,9 +1445,9 @@ export namespace Prisma {
 
   export type UserGroupByOutputType = {
     id: string
-    name: string | null
-    clerkUseId: string | null
+    clerkUserId: string
     email: string
+    name: string | null
     imageUrl: string | null
     createdAt: Date
     updatedAt: Date
@@ -1471,9 +1472,9 @@ export namespace Prisma {
 
   export type UserSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    name?: boolean
-    clerkUseId?: boolean
+    clerkUserId?: boolean
     email?: boolean
+    name?: boolean
     imageUrl?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -1484,9 +1485,9 @@ export namespace Prisma {
 
   export type UserSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    name?: boolean
-    clerkUseId?: boolean
+    clerkUserId?: boolean
     email?: boolean
+    name?: boolean
     imageUrl?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -1494,9 +1495,9 @@ export namespace Prisma {
 
   export type UserSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    name?: boolean
-    clerkUseId?: boolean
+    clerkUserId?: boolean
     email?: boolean
+    name?: boolean
     imageUrl?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -1504,15 +1505,15 @@ export namespace Prisma {
 
   export type UserSelectScalar = {
     id?: boolean
-    name?: boolean
-    clerkUseId?: boolean
+    clerkUserId?: boolean
     email?: boolean
+    name?: boolean
     imageUrl?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "clerkUseId" | "email" | "imageUrl" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "clerkUserId" | "email" | "name" | "imageUrl" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     createdIssues?: boolean | User$createdIssuesArgs<ExtArgs>
     assignedIssues?: boolean | User$assignedIssuesArgs<ExtArgs>
@@ -1529,9 +1530,9 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      name: string | null
-      clerkUseId: string | null
+      clerkUserId: string
       email: string
+      name: string | null
       imageUrl: string | null
       createdAt: Date
       updatedAt: Date
@@ -1961,9 +1962,9 @@ export namespace Prisma {
    */
   interface UserFieldRefs {
     readonly id: FieldRef<"User", 'String'>
-    readonly name: FieldRef<"User", 'String'>
-    readonly clerkUseId: FieldRef<"User", 'String'>
+    readonly clerkUserId: FieldRef<"User", 'String'>
     readonly email: FieldRef<"User", 'String'>
+    readonly name: FieldRef<"User", 'String'>
     readonly imageUrl: FieldRef<"User", 'String'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
     readonly updatedAt: FieldRef<"User", 'DateTime'>
@@ -3560,8 +3561,8 @@ export namespace Prisma {
     name: string | null
     startDate: Date | null
     endDate: Date | null
-    projectId: string | null
     status: $Enums.SprintStatus | null
+    projectId: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -3571,8 +3572,8 @@ export namespace Prisma {
     name: string | null
     startDate: Date | null
     endDate: Date | null
-    projectId: string | null
     status: $Enums.SprintStatus | null
+    projectId: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -3582,8 +3583,8 @@ export namespace Prisma {
     name: number
     startDate: number
     endDate: number
-    projectId: number
     status: number
+    projectId: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -3595,8 +3596,8 @@ export namespace Prisma {
     name?: true
     startDate?: true
     endDate?: true
-    projectId?: true
     status?: true
+    projectId?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -3606,8 +3607,8 @@ export namespace Prisma {
     name?: true
     startDate?: true
     endDate?: true
-    projectId?: true
     status?: true
+    projectId?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -3617,8 +3618,8 @@ export namespace Prisma {
     name?: true
     startDate?: true
     endDate?: true
-    projectId?: true
     status?: true
+    projectId?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -3701,8 +3702,8 @@ export namespace Prisma {
     name: string
     startDate: Date
     endDate: Date
-    projectId: string
     status: $Enums.SprintStatus
+    projectId: string
     createdAt: Date
     updatedAt: Date
     _count: SprintCountAggregateOutputType | null
@@ -3729,8 +3730,8 @@ export namespace Prisma {
     name?: boolean
     startDate?: boolean
     endDate?: boolean
-    projectId?: boolean
     status?: boolean
+    projectId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     project?: boolean | ProjectDefaultArgs<ExtArgs>
@@ -3743,8 +3744,8 @@ export namespace Prisma {
     name?: boolean
     startDate?: boolean
     endDate?: boolean
-    projectId?: boolean
     status?: boolean
+    projectId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     project?: boolean | ProjectDefaultArgs<ExtArgs>
@@ -3755,8 +3756,8 @@ export namespace Prisma {
     name?: boolean
     startDate?: boolean
     endDate?: boolean
-    projectId?: boolean
     status?: boolean
+    projectId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     project?: boolean | ProjectDefaultArgs<ExtArgs>
@@ -3767,13 +3768,13 @@ export namespace Prisma {
     name?: boolean
     startDate?: boolean
     endDate?: boolean
-    projectId?: boolean
     status?: boolean
+    projectId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type SprintOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "startDate" | "endDate" | "projectId" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["sprint"]>
+  export type SprintOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "startDate" | "endDate" | "status" | "projectId" | "createdAt" | "updatedAt", ExtArgs["result"]["sprint"]>
   export type SprintInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     project?: boolean | ProjectDefaultArgs<ExtArgs>
     issues?: boolean | Sprint$issuesArgs<ExtArgs>
@@ -3797,8 +3798,8 @@ export namespace Prisma {
       name: string
       startDate: Date
       endDate: Date
-      projectId: string
       status: $Enums.SprintStatus
+      projectId: string
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["sprint"]>
@@ -4230,8 +4231,8 @@ export namespace Prisma {
     readonly name: FieldRef<"Sprint", 'String'>
     readonly startDate: FieldRef<"Sprint", 'DateTime'>
     readonly endDate: FieldRef<"Sprint", 'DateTime'>
-    readonly projectId: FieldRef<"Sprint", 'String'>
     readonly status: FieldRef<"Sprint", 'SprintStatus'>
+    readonly projectId: FieldRef<"Sprint", 'String'>
     readonly createdAt: FieldRef<"Sprint", 'DateTime'>
     readonly updatedAt: FieldRef<"Sprint", 'DateTime'>
   }
@@ -4697,10 +4698,10 @@ export namespace Prisma {
     title: string | null
     description: string | null
     status: $Enums.IssueStatus | null
-    priority: $Enums.IssuePriority | null
     order: number | null
-    reporterId: string | null
+    priority: $Enums.IssuePriority | null
     assigneeId: string | null
+    reporterId: string | null
     projectId: string | null
     sprintId: string | null
     createdAt: Date | null
@@ -4712,10 +4713,10 @@ export namespace Prisma {
     title: string | null
     description: string | null
     status: $Enums.IssueStatus | null
-    priority: $Enums.IssuePriority | null
     order: number | null
-    reporterId: string | null
+    priority: $Enums.IssuePriority | null
     assigneeId: string | null
+    reporterId: string | null
     projectId: string | null
     sprintId: string | null
     createdAt: Date | null
@@ -4727,10 +4728,10 @@ export namespace Prisma {
     title: number
     description: number
     status: number
-    priority: number
     order: number
-    reporterId: number
+    priority: number
     assigneeId: number
+    reporterId: number
     projectId: number
     sprintId: number
     createdAt: number
@@ -4752,10 +4753,10 @@ export namespace Prisma {
     title?: true
     description?: true
     status?: true
-    priority?: true
     order?: true
-    reporterId?: true
+    priority?: true
     assigneeId?: true
+    reporterId?: true
     projectId?: true
     sprintId?: true
     createdAt?: true
@@ -4767,10 +4768,10 @@ export namespace Prisma {
     title?: true
     description?: true
     status?: true
-    priority?: true
     order?: true
-    reporterId?: true
+    priority?: true
     assigneeId?: true
+    reporterId?: true
     projectId?: true
     sprintId?: true
     createdAt?: true
@@ -4782,10 +4783,10 @@ export namespace Prisma {
     title?: true
     description?: true
     status?: true
-    priority?: true
     order?: true
-    reporterId?: true
+    priority?: true
     assigneeId?: true
+    reporterId?: true
     projectId?: true
     sprintId?: true
     createdAt?: true
@@ -4884,10 +4885,10 @@ export namespace Prisma {
     title: string
     description: string | null
     status: $Enums.IssueStatus
-    priority: $Enums.IssuePriority
     order: number
-    reporterId: string
+    priority: $Enums.IssuePriority
     assigneeId: string | null
+    reporterId: string
     projectId: string
     sprintId: string | null
     createdAt: Date
@@ -4918,16 +4919,16 @@ export namespace Prisma {
     title?: boolean
     description?: boolean
     status?: boolean
-    priority?: boolean
     order?: boolean
-    reporterId?: boolean
+    priority?: boolean
     assigneeId?: boolean
+    reporterId?: boolean
     projectId?: boolean
     sprintId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    reporter?: boolean | UserDefaultArgs<ExtArgs>
     assignee?: boolean | Issue$assigneeArgs<ExtArgs>
+    reporter?: boolean | UserDefaultArgs<ExtArgs>
     project?: boolean | ProjectDefaultArgs<ExtArgs>
     sprint?: boolean | Issue$sprintArgs<ExtArgs>
   }, ExtArgs["result"]["issue"]>
@@ -4937,16 +4938,16 @@ export namespace Prisma {
     title?: boolean
     description?: boolean
     status?: boolean
-    priority?: boolean
     order?: boolean
-    reporterId?: boolean
+    priority?: boolean
     assigneeId?: boolean
+    reporterId?: boolean
     projectId?: boolean
     sprintId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    reporter?: boolean | UserDefaultArgs<ExtArgs>
     assignee?: boolean | Issue$assigneeArgs<ExtArgs>
+    reporter?: boolean | UserDefaultArgs<ExtArgs>
     project?: boolean | ProjectDefaultArgs<ExtArgs>
     sprint?: boolean | Issue$sprintArgs<ExtArgs>
   }, ExtArgs["result"]["issue"]>
@@ -4956,16 +4957,16 @@ export namespace Prisma {
     title?: boolean
     description?: boolean
     status?: boolean
-    priority?: boolean
     order?: boolean
-    reporterId?: boolean
+    priority?: boolean
     assigneeId?: boolean
+    reporterId?: boolean
     projectId?: boolean
     sprintId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    reporter?: boolean | UserDefaultArgs<ExtArgs>
     assignee?: boolean | Issue$assigneeArgs<ExtArgs>
+    reporter?: boolean | UserDefaultArgs<ExtArgs>
     project?: boolean | ProjectDefaultArgs<ExtArgs>
     sprint?: boolean | Issue$sprintArgs<ExtArgs>
   }, ExtArgs["result"]["issue"]>
@@ -4975,32 +4976,32 @@ export namespace Prisma {
     title?: boolean
     description?: boolean
     status?: boolean
-    priority?: boolean
     order?: boolean
-    reporterId?: boolean
+    priority?: boolean
     assigneeId?: boolean
+    reporterId?: boolean
     projectId?: boolean
     sprintId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type IssueOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "status" | "priority" | "order" | "reporterId" | "assigneeId" | "projectId" | "sprintId" | "createdAt" | "updatedAt", ExtArgs["result"]["issue"]>
+  export type IssueOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "status" | "order" | "priority" | "assigneeId" | "reporterId" | "projectId" | "sprintId" | "createdAt" | "updatedAt", ExtArgs["result"]["issue"]>
   export type IssueInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    reporter?: boolean | UserDefaultArgs<ExtArgs>
     assignee?: boolean | Issue$assigneeArgs<ExtArgs>
+    reporter?: boolean | UserDefaultArgs<ExtArgs>
     project?: boolean | ProjectDefaultArgs<ExtArgs>
     sprint?: boolean | Issue$sprintArgs<ExtArgs>
   }
   export type IssueIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    reporter?: boolean | UserDefaultArgs<ExtArgs>
     assignee?: boolean | Issue$assigneeArgs<ExtArgs>
+    reporter?: boolean | UserDefaultArgs<ExtArgs>
     project?: boolean | ProjectDefaultArgs<ExtArgs>
     sprint?: boolean | Issue$sprintArgs<ExtArgs>
   }
   export type IssueIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    reporter?: boolean | UserDefaultArgs<ExtArgs>
     assignee?: boolean | Issue$assigneeArgs<ExtArgs>
+    reporter?: boolean | UserDefaultArgs<ExtArgs>
     project?: boolean | ProjectDefaultArgs<ExtArgs>
     sprint?: boolean | Issue$sprintArgs<ExtArgs>
   }
@@ -5008,8 +5009,8 @@ export namespace Prisma {
   export type $IssuePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Issue"
     objects: {
-      reporter: Prisma.$UserPayload<ExtArgs>
       assignee: Prisma.$UserPayload<ExtArgs> | null
+      reporter: Prisma.$UserPayload<ExtArgs>
       project: Prisma.$ProjectPayload<ExtArgs>
       sprint: Prisma.$SprintPayload<ExtArgs> | null
     }
@@ -5018,10 +5019,10 @@ export namespace Prisma {
       title: string
       description: string | null
       status: $Enums.IssueStatus
-      priority: $Enums.IssuePriority
       order: number
-      reporterId: string
+      priority: $Enums.IssuePriority
       assigneeId: string | null
+      reporterId: string
       projectId: string
       sprintId: string | null
       createdAt: Date
@@ -5420,8 +5421,8 @@ export namespace Prisma {
    */
   export interface Prisma__IssueClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    reporter<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     assignee<T extends Issue$assigneeArgs<ExtArgs> = {}>(args?: Subset<T, Issue$assigneeArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    reporter<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     project<T extends ProjectDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProjectDefaultArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     sprint<T extends Issue$sprintArgs<ExtArgs> = {}>(args?: Subset<T, Issue$sprintArgs<ExtArgs>>): Prisma__SprintClient<$Result.GetResult<Prisma.$SprintPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
@@ -5457,10 +5458,10 @@ export namespace Prisma {
     readonly title: FieldRef<"Issue", 'String'>
     readonly description: FieldRef<"Issue", 'String'>
     readonly status: FieldRef<"Issue", 'IssueStatus'>
-    readonly priority: FieldRef<"Issue", 'IssuePriority'>
     readonly order: FieldRef<"Issue", 'Int'>
-    readonly reporterId: FieldRef<"Issue", 'String'>
+    readonly priority: FieldRef<"Issue", 'IssuePriority'>
     readonly assigneeId: FieldRef<"Issue", 'String'>
+    readonly reporterId: FieldRef<"Issue", 'String'>
     readonly projectId: FieldRef<"Issue", 'String'>
     readonly sprintId: FieldRef<"Issue", 'String'>
     readonly createdAt: FieldRef<"Issue", 'DateTime'>
@@ -5933,9 +5934,9 @@ export namespace Prisma {
 
   export const UserScalarFieldEnum: {
     id: 'id',
-    name: 'name',
-    clerkUseId: 'clerkUseId',
+    clerkUserId: 'clerkUserId',
     email: 'email',
+    name: 'name',
     imageUrl: 'imageUrl',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
@@ -5962,8 +5963,8 @@ export namespace Prisma {
     name: 'name',
     startDate: 'startDate',
     endDate: 'endDate',
-    projectId: 'projectId',
     status: 'status',
+    projectId: 'projectId',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -5976,10 +5977,10 @@ export namespace Prisma {
     title: 'title',
     description: 'description',
     status: 'status',
-    priority: 'priority',
     order: 'order',
-    reporterId: 'reporterId',
+    priority: 'priority',
     assigneeId: 'assigneeId',
+    reporterId: 'reporterId',
     projectId: 'projectId',
     sprintId: 'sprintId',
     createdAt: 'createdAt',
@@ -6075,20 +6076,6 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'IssuePriority'
-   */
-  export type EnumIssuePriorityFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'IssuePriority'>
-    
-
-
-  /**
-   * Reference to a field of type 'IssuePriority[]'
-   */
-  export type ListEnumIssuePriorityFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'IssuePriority[]'>
-    
-
-
-  /**
    * Reference to a field of type 'Int'
    */
   export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
@@ -6099,6 +6086,20 @@ export namespace Prisma {
    * Reference to a field of type 'Int[]'
    */
   export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'IssuePriority'
+   */
+  export type EnumIssuePriorityFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'IssuePriority'>
+    
+
+
+  /**
+   * Reference to a field of type 'IssuePriority[]'
+   */
+  export type ListEnumIssuePriorityFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'IssuePriority[]'>
     
 
 
@@ -6124,9 +6125,9 @@ export namespace Prisma {
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
     id?: StringFilter<"User"> | string
-    name?: StringNullableFilter<"User"> | string | null
-    clerkUseId?: StringNullableFilter<"User"> | string | null
+    clerkUserId?: StringFilter<"User"> | string
     email?: StringFilter<"User"> | string
+    name?: StringNullableFilter<"User"> | string | null
     imageUrl?: StringNullableFilter<"User"> | string | null
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
@@ -6136,9 +6137,9 @@ export namespace Prisma {
 
   export type UserOrderByWithRelationInput = {
     id?: SortOrder
-    name?: SortOrderInput | SortOrder
-    clerkUseId?: SortOrderInput | SortOrder
+    clerkUserId?: SortOrder
     email?: SortOrder
+    name?: SortOrderInput | SortOrder
     imageUrl?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -6148,7 +6149,7 @@ export namespace Prisma {
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    clerkUseId?: string
+    clerkUserId?: string
     email?: string
     AND?: UserWhereInput | UserWhereInput[]
     OR?: UserWhereInput[]
@@ -6159,13 +6160,13 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"User"> | Date | string
     createdIssues?: IssueListRelationFilter
     assignedIssues?: IssueListRelationFilter
-  }, "id" | "clerkUseId" | "email">
+  }, "id" | "clerkUserId" | "email">
 
   export type UserOrderByWithAggregationInput = {
     id?: SortOrder
-    name?: SortOrderInput | SortOrder
-    clerkUseId?: SortOrderInput | SortOrder
+    clerkUserId?: SortOrder
     email?: SortOrder
+    name?: SortOrderInput | SortOrder
     imageUrl?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -6179,9 +6180,9 @@ export namespace Prisma {
     OR?: UserScalarWhereWithAggregatesInput[]
     NOT?: UserScalarWhereWithAggregatesInput | UserScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"User"> | string
-    name?: StringNullableWithAggregatesFilter<"User"> | string | null
-    clerkUseId?: StringNullableWithAggregatesFilter<"User"> | string | null
+    clerkUserId?: StringWithAggregatesFilter<"User"> | string
     email?: StringWithAggregatesFilter<"User"> | string
+    name?: StringNullableWithAggregatesFilter<"User"> | string | null
     imageUrl?: StringNullableWithAggregatesFilter<"User"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
@@ -6216,7 +6217,7 @@ export namespace Prisma {
 
   export type ProjectWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    key_organizationId?: ProjectKeyOrganizationIdCompoundUniqueInput
+    organizationId_key?: ProjectOrganizationIdKeyCompoundUniqueInput
     AND?: ProjectWhereInput | ProjectWhereInput[]
     OR?: ProjectWhereInput[]
     NOT?: ProjectWhereInput | ProjectWhereInput[]
@@ -6228,7 +6229,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Project"> | Date | string
     sprints?: SprintListRelationFilter
     issues?: IssueListRelationFilter
-  }, "id" | "key_organizationId">
+  }, "id" | "organizationId_key">
 
   export type ProjectOrderByWithAggregationInput = {
     id?: SortOrder
@@ -6264,8 +6265,8 @@ export namespace Prisma {
     name?: StringFilter<"Sprint"> | string
     startDate?: DateTimeFilter<"Sprint"> | Date | string
     endDate?: DateTimeFilter<"Sprint"> | Date | string
-    projectId?: StringFilter<"Sprint"> | string
     status?: EnumSprintStatusFilter<"Sprint"> | $Enums.SprintStatus
+    projectId?: StringFilter<"Sprint"> | string
     createdAt?: DateTimeFilter<"Sprint"> | Date | string
     updatedAt?: DateTimeFilter<"Sprint"> | Date | string
     project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
@@ -6277,8 +6278,8 @@ export namespace Prisma {
     name?: SortOrder
     startDate?: SortOrder
     endDate?: SortOrder
-    projectId?: SortOrder
     status?: SortOrder
+    projectId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     project?: ProjectOrderByWithRelationInput
@@ -6293,8 +6294,8 @@ export namespace Prisma {
     NOT?: SprintWhereInput | SprintWhereInput[]
     startDate?: DateTimeFilter<"Sprint"> | Date | string
     endDate?: DateTimeFilter<"Sprint"> | Date | string
-    projectId?: StringFilter<"Sprint"> | string
     status?: EnumSprintStatusFilter<"Sprint"> | $Enums.SprintStatus
+    projectId?: StringFilter<"Sprint"> | string
     createdAt?: DateTimeFilter<"Sprint"> | Date | string
     updatedAt?: DateTimeFilter<"Sprint"> | Date | string
     project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
@@ -6306,8 +6307,8 @@ export namespace Prisma {
     name?: SortOrder
     startDate?: SortOrder
     endDate?: SortOrder
-    projectId?: SortOrder
     status?: SortOrder
+    projectId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: SprintCountOrderByAggregateInput
@@ -6323,8 +6324,8 @@ export namespace Prisma {
     name?: StringWithAggregatesFilter<"Sprint"> | string
     startDate?: DateTimeWithAggregatesFilter<"Sprint"> | Date | string
     endDate?: DateTimeWithAggregatesFilter<"Sprint"> | Date | string
-    projectId?: StringWithAggregatesFilter<"Sprint"> | string
     status?: EnumSprintStatusWithAggregatesFilter<"Sprint"> | $Enums.SprintStatus
+    projectId?: StringWithAggregatesFilter<"Sprint"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Sprint"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Sprint"> | Date | string
   }
@@ -6337,16 +6338,16 @@ export namespace Prisma {
     title?: StringFilter<"Issue"> | string
     description?: StringNullableFilter<"Issue"> | string | null
     status?: EnumIssueStatusFilter<"Issue"> | $Enums.IssueStatus
-    priority?: EnumIssuePriorityFilter<"Issue"> | $Enums.IssuePriority
     order?: IntFilter<"Issue"> | number
-    reporterId?: StringFilter<"Issue"> | string
+    priority?: EnumIssuePriorityFilter<"Issue"> | $Enums.IssuePriority
     assigneeId?: StringNullableFilter<"Issue"> | string | null
+    reporterId?: StringFilter<"Issue"> | string
     projectId?: StringFilter<"Issue"> | string
     sprintId?: StringNullableFilter<"Issue"> | string | null
     createdAt?: DateTimeFilter<"Issue"> | Date | string
     updatedAt?: DateTimeFilter<"Issue"> | Date | string
-    reporter?: XOR<UserScalarRelationFilter, UserWhereInput>
     assignee?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
+    reporter?: XOR<UserScalarRelationFilter, UserWhereInput>
     project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
     sprint?: XOR<SprintNullableScalarRelationFilter, SprintWhereInput> | null
   }
@@ -6356,16 +6357,16 @@ export namespace Prisma {
     title?: SortOrder
     description?: SortOrderInput | SortOrder
     status?: SortOrder
-    priority?: SortOrder
     order?: SortOrder
-    reporterId?: SortOrder
+    priority?: SortOrder
     assigneeId?: SortOrderInput | SortOrder
+    reporterId?: SortOrder
     projectId?: SortOrder
     sprintId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    reporter?: UserOrderByWithRelationInput
     assignee?: UserOrderByWithRelationInput
+    reporter?: UserOrderByWithRelationInput
     project?: ProjectOrderByWithRelationInput
     sprint?: SprintOrderByWithRelationInput
   }
@@ -6378,16 +6379,16 @@ export namespace Prisma {
     title?: StringFilter<"Issue"> | string
     description?: StringNullableFilter<"Issue"> | string | null
     status?: EnumIssueStatusFilter<"Issue"> | $Enums.IssueStatus
-    priority?: EnumIssuePriorityFilter<"Issue"> | $Enums.IssuePriority
     order?: IntFilter<"Issue"> | number
-    reporterId?: StringFilter<"Issue"> | string
+    priority?: EnumIssuePriorityFilter<"Issue"> | $Enums.IssuePriority
     assigneeId?: StringNullableFilter<"Issue"> | string | null
+    reporterId?: StringFilter<"Issue"> | string
     projectId?: StringFilter<"Issue"> | string
     sprintId?: StringNullableFilter<"Issue"> | string | null
     createdAt?: DateTimeFilter<"Issue"> | Date | string
     updatedAt?: DateTimeFilter<"Issue"> | Date | string
-    reporter?: XOR<UserScalarRelationFilter, UserWhereInput>
     assignee?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
+    reporter?: XOR<UserScalarRelationFilter, UserWhereInput>
     project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
     sprint?: XOR<SprintNullableScalarRelationFilter, SprintWhereInput> | null
   }, "id">
@@ -6397,10 +6398,10 @@ export namespace Prisma {
     title?: SortOrder
     description?: SortOrderInput | SortOrder
     status?: SortOrder
-    priority?: SortOrder
     order?: SortOrder
-    reporterId?: SortOrder
+    priority?: SortOrder
     assigneeId?: SortOrderInput | SortOrder
+    reporterId?: SortOrder
     projectId?: SortOrder
     sprintId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
@@ -6420,10 +6421,10 @@ export namespace Prisma {
     title?: StringWithAggregatesFilter<"Issue"> | string
     description?: StringNullableWithAggregatesFilter<"Issue"> | string | null
     status?: EnumIssueStatusWithAggregatesFilter<"Issue"> | $Enums.IssueStatus
-    priority?: EnumIssuePriorityWithAggregatesFilter<"Issue"> | $Enums.IssuePriority
     order?: IntWithAggregatesFilter<"Issue"> | number
-    reporterId?: StringWithAggregatesFilter<"Issue"> | string
+    priority?: EnumIssuePriorityWithAggregatesFilter<"Issue"> | $Enums.IssuePriority
     assigneeId?: StringNullableWithAggregatesFilter<"Issue"> | string | null
+    reporterId?: StringWithAggregatesFilter<"Issue"> | string
     projectId?: StringWithAggregatesFilter<"Issue"> | string
     sprintId?: StringNullableWithAggregatesFilter<"Issue"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Issue"> | Date | string
@@ -6432,9 +6433,9 @@ export namespace Prisma {
 
   export type UserCreateInput = {
     id?: string
-    name?: string | null
-    clerkUseId?: string | null
+    clerkUserId: string
     email: string
+    name?: string | null
     imageUrl?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -6444,9 +6445,9 @@ export namespace Prisma {
 
   export type UserUncheckedCreateInput = {
     id?: string
-    name?: string | null
-    clerkUseId?: string | null
+    clerkUserId: string
     email: string
+    name?: string | null
     imageUrl?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -6456,9 +6457,9 @@ export namespace Prisma {
 
   export type UserUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    clerkUseId?: NullableStringFieldUpdateOperationsInput | string | null
+    clerkUserId?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -6468,9 +6469,9 @@ export namespace Prisma {
 
   export type UserUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    clerkUseId?: NullableStringFieldUpdateOperationsInput | string | null
+    clerkUserId?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -6480,9 +6481,9 @@ export namespace Prisma {
 
   export type UserCreateManyInput = {
     id?: string
-    name?: string | null
-    clerkUseId?: string | null
+    clerkUserId: string
     email: string
+    name?: string | null
     imageUrl?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -6490,9 +6491,9 @@ export namespace Prisma {
 
   export type UserUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    clerkUseId?: NullableStringFieldUpdateOperationsInput | string | null
+    clerkUserId?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -6500,9 +6501,9 @@ export namespace Prisma {
 
   export type UserUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    clerkUseId?: NullableStringFieldUpdateOperationsInput | string | null
+    clerkUserId?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -6603,8 +6604,8 @@ export namespace Prisma {
     name: string
     startDate: Date | string
     endDate: Date | string
-    projectId: string
     status?: $Enums.SprintStatus
+    projectId: string
     createdAt?: Date | string
     updatedAt?: Date | string
     issues?: IssueUncheckedCreateNestedManyWithoutSprintInput
@@ -6627,8 +6628,8 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
     endDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    projectId?: StringFieldUpdateOperationsInput | string
     status?: EnumSprintStatusFieldUpdateOperationsInput | $Enums.SprintStatus
+    projectId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     issues?: IssueUncheckedUpdateManyWithoutSprintNestedInput
@@ -6639,8 +6640,8 @@ export namespace Prisma {
     name: string
     startDate: Date | string
     endDate: Date | string
-    projectId: string
     status?: $Enums.SprintStatus
+    projectId: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -6660,8 +6661,8 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
     endDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    projectId?: StringFieldUpdateOperationsInput | string
     status?: EnumSprintStatusFieldUpdateOperationsInput | $Enums.SprintStatus
+    projectId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -6671,12 +6672,12 @@ export namespace Prisma {
     title: string
     description?: string | null
     status: $Enums.IssueStatus
-    priority: $Enums.IssuePriority
     order: number
+    priority: $Enums.IssuePriority
     createdAt?: Date | string
     updatedAt?: Date | string
-    reporter: UserCreateNestedOneWithoutCreatedIssuesInput
     assignee?: UserCreateNestedOneWithoutAssignedIssuesInput
+    reporter: UserCreateNestedOneWithoutCreatedIssuesInput
     project: ProjectCreateNestedOneWithoutIssuesInput
     sprint?: SprintCreateNestedOneWithoutIssuesInput
   }
@@ -6686,10 +6687,10 @@ export namespace Prisma {
     title: string
     description?: string | null
     status: $Enums.IssueStatus
-    priority: $Enums.IssuePriority
     order: number
-    reporterId: string
+    priority: $Enums.IssuePriority
     assigneeId?: string | null
+    reporterId: string
     projectId: string
     sprintId?: string | null
     createdAt?: Date | string
@@ -6701,12 +6702,12 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: EnumIssueStatusFieldUpdateOperationsInput | $Enums.IssueStatus
-    priority?: EnumIssuePriorityFieldUpdateOperationsInput | $Enums.IssuePriority
     order?: IntFieldUpdateOperationsInput | number
+    priority?: EnumIssuePriorityFieldUpdateOperationsInput | $Enums.IssuePriority
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    reporter?: UserUpdateOneRequiredWithoutCreatedIssuesNestedInput
     assignee?: UserUpdateOneWithoutAssignedIssuesNestedInput
+    reporter?: UserUpdateOneRequiredWithoutCreatedIssuesNestedInput
     project?: ProjectUpdateOneRequiredWithoutIssuesNestedInput
     sprint?: SprintUpdateOneWithoutIssuesNestedInput
   }
@@ -6716,10 +6717,10 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: EnumIssueStatusFieldUpdateOperationsInput | $Enums.IssueStatus
-    priority?: EnumIssuePriorityFieldUpdateOperationsInput | $Enums.IssuePriority
     order?: IntFieldUpdateOperationsInput | number
-    reporterId?: StringFieldUpdateOperationsInput | string
+    priority?: EnumIssuePriorityFieldUpdateOperationsInput | $Enums.IssuePriority
     assigneeId?: NullableStringFieldUpdateOperationsInput | string | null
+    reporterId?: StringFieldUpdateOperationsInput | string
     projectId?: StringFieldUpdateOperationsInput | string
     sprintId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -6731,10 +6732,10 @@ export namespace Prisma {
     title: string
     description?: string | null
     status: $Enums.IssueStatus
-    priority: $Enums.IssuePriority
     order: number
-    reporterId: string
+    priority: $Enums.IssuePriority
     assigneeId?: string | null
+    reporterId: string
     projectId: string
     sprintId?: string | null
     createdAt?: Date | string
@@ -6746,8 +6747,8 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: EnumIssueStatusFieldUpdateOperationsInput | $Enums.IssueStatus
-    priority?: EnumIssuePriorityFieldUpdateOperationsInput | $Enums.IssuePriority
     order?: IntFieldUpdateOperationsInput | number
+    priority?: EnumIssuePriorityFieldUpdateOperationsInput | $Enums.IssuePriority
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -6757,10 +6758,10 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: EnumIssueStatusFieldUpdateOperationsInput | $Enums.IssueStatus
-    priority?: EnumIssuePriorityFieldUpdateOperationsInput | $Enums.IssuePriority
     order?: IntFieldUpdateOperationsInput | number
-    reporterId?: StringFieldUpdateOperationsInput | string
+    priority?: EnumIssuePriorityFieldUpdateOperationsInput | $Enums.IssuePriority
     assigneeId?: NullableStringFieldUpdateOperationsInput | string | null
+    reporterId?: StringFieldUpdateOperationsInput | string
     projectId?: StringFieldUpdateOperationsInput | string
     sprintId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -6825,9 +6826,9 @@ export namespace Prisma {
 
   export type UserCountOrderByAggregateInput = {
     id?: SortOrder
-    name?: SortOrder
-    clerkUseId?: SortOrder
+    clerkUserId?: SortOrder
     email?: SortOrder
+    name?: SortOrder
     imageUrl?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -6835,9 +6836,9 @@ export namespace Prisma {
 
   export type UserMaxOrderByAggregateInput = {
     id?: SortOrder
-    name?: SortOrder
-    clerkUseId?: SortOrder
+    clerkUserId?: SortOrder
     email?: SortOrder
+    name?: SortOrder
     imageUrl?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -6845,9 +6846,9 @@ export namespace Prisma {
 
   export type UserMinOrderByAggregateInput = {
     id?: SortOrder
-    name?: SortOrder
-    clerkUseId?: SortOrder
+    clerkUserId?: SortOrder
     email?: SortOrder
+    name?: SortOrder
     imageUrl?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -6913,9 +6914,9 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
-  export type ProjectKeyOrganizationIdCompoundUniqueInput = {
-    key: string
+  export type ProjectOrganizationIdKeyCompoundUniqueInput = {
     organizationId: string
+    key: string
   }
 
   export type ProjectCountOrderByAggregateInput = {
@@ -6965,8 +6966,8 @@ export namespace Prisma {
     name?: SortOrder
     startDate?: SortOrder
     endDate?: SortOrder
-    projectId?: SortOrder
     status?: SortOrder
+    projectId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -6976,8 +6977,8 @@ export namespace Prisma {
     name?: SortOrder
     startDate?: SortOrder
     endDate?: SortOrder
-    projectId?: SortOrder
     status?: SortOrder
+    projectId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -6987,8 +6988,8 @@ export namespace Prisma {
     name?: SortOrder
     startDate?: SortOrder
     endDate?: SortOrder
-    projectId?: SortOrder
     status?: SortOrder
+    projectId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -7010,13 +7011,6 @@ export namespace Prisma {
     not?: NestedEnumIssueStatusFilter<$PrismaModel> | $Enums.IssueStatus
   }
 
-  export type EnumIssuePriorityFilter<$PrismaModel = never> = {
-    equals?: $Enums.IssuePriority | EnumIssuePriorityFieldRefInput<$PrismaModel>
-    in?: $Enums.IssuePriority[] | ListEnumIssuePriorityFieldRefInput<$PrismaModel>
-    notIn?: $Enums.IssuePriority[] | ListEnumIssuePriorityFieldRefInput<$PrismaModel>
-    not?: NestedEnumIssuePriorityFilter<$PrismaModel> | $Enums.IssuePriority
-  }
-
   export type IntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -7028,14 +7022,21 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
-  export type UserScalarRelationFilter = {
-    is?: UserWhereInput
-    isNot?: UserWhereInput
+  export type EnumIssuePriorityFilter<$PrismaModel = never> = {
+    equals?: $Enums.IssuePriority | EnumIssuePriorityFieldRefInput<$PrismaModel>
+    in?: $Enums.IssuePriority[] | ListEnumIssuePriorityFieldRefInput<$PrismaModel>
+    notIn?: $Enums.IssuePriority[] | ListEnumIssuePriorityFieldRefInput<$PrismaModel>
+    not?: NestedEnumIssuePriorityFilter<$PrismaModel> | $Enums.IssuePriority
   }
 
   export type UserNullableScalarRelationFilter = {
     is?: UserWhereInput | null
     isNot?: UserWhereInput | null
+  }
+
+  export type UserScalarRelationFilter = {
+    is?: UserWhereInput
+    isNot?: UserWhereInput
   }
 
   export type SprintNullableScalarRelationFilter = {
@@ -7048,10 +7049,10 @@ export namespace Prisma {
     title?: SortOrder
     description?: SortOrder
     status?: SortOrder
-    priority?: SortOrder
     order?: SortOrder
-    reporterId?: SortOrder
+    priority?: SortOrder
     assigneeId?: SortOrder
+    reporterId?: SortOrder
     projectId?: SortOrder
     sprintId?: SortOrder
     createdAt?: SortOrder
@@ -7067,10 +7068,10 @@ export namespace Prisma {
     title?: SortOrder
     description?: SortOrder
     status?: SortOrder
-    priority?: SortOrder
     order?: SortOrder
-    reporterId?: SortOrder
+    priority?: SortOrder
     assigneeId?: SortOrder
+    reporterId?: SortOrder
     projectId?: SortOrder
     sprintId?: SortOrder
     createdAt?: SortOrder
@@ -7082,10 +7083,10 @@ export namespace Prisma {
     title?: SortOrder
     description?: SortOrder
     status?: SortOrder
-    priority?: SortOrder
     order?: SortOrder
-    reporterId?: SortOrder
+    priority?: SortOrder
     assigneeId?: SortOrder
+    reporterId?: SortOrder
     projectId?: SortOrder
     sprintId?: SortOrder
     createdAt?: SortOrder
@@ -7106,16 +7107,6 @@ export namespace Prisma {
     _max?: NestedEnumIssueStatusFilter<$PrismaModel>
   }
 
-  export type EnumIssuePriorityWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.IssuePriority | EnumIssuePriorityFieldRefInput<$PrismaModel>
-    in?: $Enums.IssuePriority[] | ListEnumIssuePriorityFieldRefInput<$PrismaModel>
-    notIn?: $Enums.IssuePriority[] | ListEnumIssuePriorityFieldRefInput<$PrismaModel>
-    not?: NestedEnumIssuePriorityWithAggregatesFilter<$PrismaModel> | $Enums.IssuePriority
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumIssuePriorityFilter<$PrismaModel>
-    _max?: NestedEnumIssuePriorityFilter<$PrismaModel>
-  }
-
   export type IntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -7130,6 +7121,16 @@ export namespace Prisma {
     _sum?: NestedIntFilter<$PrismaModel>
     _min?: NestedIntFilter<$PrismaModel>
     _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type EnumIssuePriorityWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.IssuePriority | EnumIssuePriorityFieldRefInput<$PrismaModel>
+    in?: $Enums.IssuePriority[] | ListEnumIssuePriorityFieldRefInput<$PrismaModel>
+    notIn?: $Enums.IssuePriority[] | ListEnumIssuePriorityFieldRefInput<$PrismaModel>
+    not?: NestedEnumIssuePriorityWithAggregatesFilter<$PrismaModel> | $Enums.IssuePriority
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumIssuePriorityFilter<$PrismaModel>
+    _max?: NestedEnumIssuePriorityFilter<$PrismaModel>
   }
 
   export type IssueCreateNestedManyWithoutReporterInput = {
@@ -7372,15 +7373,15 @@ export namespace Prisma {
     deleteMany?: IssueScalarWhereInput | IssueScalarWhereInput[]
   }
 
-  export type UserCreateNestedOneWithoutCreatedIssuesInput = {
-    create?: XOR<UserCreateWithoutCreatedIssuesInput, UserUncheckedCreateWithoutCreatedIssuesInput>
-    connectOrCreate?: UserCreateOrConnectWithoutCreatedIssuesInput
-    connect?: UserWhereUniqueInput
-  }
-
   export type UserCreateNestedOneWithoutAssignedIssuesInput = {
     create?: XOR<UserCreateWithoutAssignedIssuesInput, UserUncheckedCreateWithoutAssignedIssuesInput>
     connectOrCreate?: UserCreateOrConnectWithoutAssignedIssuesInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type UserCreateNestedOneWithoutCreatedIssuesInput = {
+    create?: XOR<UserCreateWithoutCreatedIssuesInput, UserUncheckedCreateWithoutCreatedIssuesInput>
+    connectOrCreate?: UserCreateOrConnectWithoutCreatedIssuesInput
     connect?: UserWhereUniqueInput
   }
 
@@ -7400,10 +7401,6 @@ export namespace Prisma {
     set?: $Enums.IssueStatus
   }
 
-  export type EnumIssuePriorityFieldUpdateOperationsInput = {
-    set?: $Enums.IssuePriority
-  }
-
   export type IntFieldUpdateOperationsInput = {
     set?: number
     increment?: number
@@ -7412,12 +7409,8 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type UserUpdateOneRequiredWithoutCreatedIssuesNestedInput = {
-    create?: XOR<UserCreateWithoutCreatedIssuesInput, UserUncheckedCreateWithoutCreatedIssuesInput>
-    connectOrCreate?: UserCreateOrConnectWithoutCreatedIssuesInput
-    upsert?: UserUpsertWithoutCreatedIssuesInput
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutCreatedIssuesInput, UserUpdateWithoutCreatedIssuesInput>, UserUncheckedUpdateWithoutCreatedIssuesInput>
+  export type EnumIssuePriorityFieldUpdateOperationsInput = {
+    set?: $Enums.IssuePriority
   }
 
   export type UserUpdateOneWithoutAssignedIssuesNestedInput = {
@@ -7428,6 +7421,14 @@ export namespace Prisma {
     delete?: UserWhereInput | boolean
     connect?: UserWhereUniqueInput
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutAssignedIssuesInput, UserUpdateWithoutAssignedIssuesInput>, UserUncheckedUpdateWithoutAssignedIssuesInput>
+  }
+
+  export type UserUpdateOneRequiredWithoutCreatedIssuesNestedInput = {
+    create?: XOR<UserCreateWithoutCreatedIssuesInput, UserUncheckedCreateWithoutCreatedIssuesInput>
+    connectOrCreate?: UserCreateOrConnectWithoutCreatedIssuesInput
+    upsert?: UserUpsertWithoutCreatedIssuesInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutCreatedIssuesInput, UserUpdateWithoutCreatedIssuesInput>, UserUncheckedUpdateWithoutCreatedIssuesInput>
   }
 
   export type ProjectUpdateOneRequiredWithoutIssuesNestedInput = {
@@ -7598,16 +7599,6 @@ export namespace Prisma {
     _max?: NestedEnumIssueStatusFilter<$PrismaModel>
   }
 
-  export type NestedEnumIssuePriorityWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.IssuePriority | EnumIssuePriorityFieldRefInput<$PrismaModel>
-    in?: $Enums.IssuePriority[] | ListEnumIssuePriorityFieldRefInput<$PrismaModel>
-    notIn?: $Enums.IssuePriority[] | ListEnumIssuePriorityFieldRefInput<$PrismaModel>
-    not?: NestedEnumIssuePriorityWithAggregatesFilter<$PrismaModel> | $Enums.IssuePriority
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumIssuePriorityFilter<$PrismaModel>
-    _max?: NestedEnumIssuePriorityFilter<$PrismaModel>
-  }
-
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -7635,13 +7626,23 @@ export namespace Prisma {
     not?: NestedFloatFilter<$PrismaModel> | number
   }
 
+  export type NestedEnumIssuePriorityWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.IssuePriority | EnumIssuePriorityFieldRefInput<$PrismaModel>
+    in?: $Enums.IssuePriority[] | ListEnumIssuePriorityFieldRefInput<$PrismaModel>
+    notIn?: $Enums.IssuePriority[] | ListEnumIssuePriorityFieldRefInput<$PrismaModel>
+    not?: NestedEnumIssuePriorityWithAggregatesFilter<$PrismaModel> | $Enums.IssuePriority
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumIssuePriorityFilter<$PrismaModel>
+    _max?: NestedEnumIssuePriorityFilter<$PrismaModel>
+  }
+
   export type IssueCreateWithoutReporterInput = {
     id?: string
     title: string
     description?: string | null
     status: $Enums.IssueStatus
-    priority: $Enums.IssuePriority
     order: number
+    priority: $Enums.IssuePriority
     createdAt?: Date | string
     updatedAt?: Date | string
     assignee?: UserCreateNestedOneWithoutAssignedIssuesInput
@@ -7654,8 +7655,8 @@ export namespace Prisma {
     title: string
     description?: string | null
     status: $Enums.IssueStatus
-    priority: $Enums.IssuePriority
     order: number
+    priority: $Enums.IssuePriority
     assigneeId?: string | null
     projectId: string
     sprintId?: string | null
@@ -7678,8 +7679,8 @@ export namespace Prisma {
     title: string
     description?: string | null
     status: $Enums.IssueStatus
-    priority: $Enums.IssuePriority
     order: number
+    priority: $Enums.IssuePriority
     createdAt?: Date | string
     updatedAt?: Date | string
     reporter: UserCreateNestedOneWithoutCreatedIssuesInput
@@ -7692,8 +7693,8 @@ export namespace Prisma {
     title: string
     description?: string | null
     status: $Enums.IssueStatus
-    priority: $Enums.IssuePriority
     order: number
+    priority: $Enums.IssuePriority
     reporterId: string
     projectId: string
     sprintId?: string | null
@@ -7735,10 +7736,10 @@ export namespace Prisma {
     title?: StringFilter<"Issue"> | string
     description?: StringNullableFilter<"Issue"> | string | null
     status?: EnumIssueStatusFilter<"Issue"> | $Enums.IssueStatus
-    priority?: EnumIssuePriorityFilter<"Issue"> | $Enums.IssuePriority
     order?: IntFilter<"Issue"> | number
-    reporterId?: StringFilter<"Issue"> | string
+    priority?: EnumIssuePriorityFilter<"Issue"> | $Enums.IssuePriority
     assigneeId?: StringNullableFilter<"Issue"> | string | null
+    reporterId?: StringFilter<"Issue"> | string
     projectId?: StringFilter<"Issue"> | string
     sprintId?: StringNullableFilter<"Issue"> | string | null
     createdAt?: DateTimeFilter<"Issue"> | Date | string
@@ -7798,12 +7799,12 @@ export namespace Prisma {
     title: string
     description?: string | null
     status: $Enums.IssueStatus
-    priority: $Enums.IssuePriority
     order: number
+    priority: $Enums.IssuePriority
     createdAt?: Date | string
     updatedAt?: Date | string
-    reporter: UserCreateNestedOneWithoutCreatedIssuesInput
     assignee?: UserCreateNestedOneWithoutAssignedIssuesInput
+    reporter: UserCreateNestedOneWithoutCreatedIssuesInput
     sprint?: SprintCreateNestedOneWithoutIssuesInput
   }
 
@@ -7812,10 +7813,10 @@ export namespace Prisma {
     title: string
     description?: string | null
     status: $Enums.IssueStatus
-    priority: $Enums.IssuePriority
     order: number
-    reporterId: string
+    priority: $Enums.IssuePriority
     assigneeId?: string | null
+    reporterId: string
     sprintId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -7855,8 +7856,8 @@ export namespace Prisma {
     name?: StringFilter<"Sprint"> | string
     startDate?: DateTimeFilter<"Sprint"> | Date | string
     endDate?: DateTimeFilter<"Sprint"> | Date | string
-    projectId?: StringFilter<"Sprint"> | string
     status?: EnumSprintStatusFilter<"Sprint"> | $Enums.SprintStatus
+    projectId?: StringFilter<"Sprint"> | string
     createdAt?: DateTimeFilter<"Sprint"> | Date | string
     updatedAt?: DateTimeFilter<"Sprint"> | Date | string
   }
@@ -7909,12 +7910,12 @@ export namespace Prisma {
     title: string
     description?: string | null
     status: $Enums.IssueStatus
-    priority: $Enums.IssuePriority
     order: number
+    priority: $Enums.IssuePriority
     createdAt?: Date | string
     updatedAt?: Date | string
-    reporter: UserCreateNestedOneWithoutCreatedIssuesInput
     assignee?: UserCreateNestedOneWithoutAssignedIssuesInput
+    reporter: UserCreateNestedOneWithoutCreatedIssuesInput
     project: ProjectCreateNestedOneWithoutIssuesInput
   }
 
@@ -7923,10 +7924,10 @@ export namespace Prisma {
     title: string
     description?: string | null
     status: $Enums.IssueStatus
-    priority: $Enums.IssuePriority
     order: number
-    reporterId: string
+    priority: $Enums.IssuePriority
     assigneeId?: string | null
+    reporterId: string
     projectId: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -7991,38 +7992,11 @@ export namespace Prisma {
     data: XOR<IssueUpdateManyMutationInput, IssueUncheckedUpdateManyWithoutSprintInput>
   }
 
-  export type UserCreateWithoutCreatedIssuesInput = {
-    id?: string
-    name?: string | null
-    clerkUseId?: string | null
-    email: string
-    imageUrl?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    assignedIssues?: IssueCreateNestedManyWithoutAssigneeInput
-  }
-
-  export type UserUncheckedCreateWithoutCreatedIssuesInput = {
-    id?: string
-    name?: string | null
-    clerkUseId?: string | null
-    email: string
-    imageUrl?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    assignedIssues?: IssueUncheckedCreateNestedManyWithoutAssigneeInput
-  }
-
-  export type UserCreateOrConnectWithoutCreatedIssuesInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutCreatedIssuesInput, UserUncheckedCreateWithoutCreatedIssuesInput>
-  }
-
   export type UserCreateWithoutAssignedIssuesInput = {
     id?: string
-    name?: string | null
-    clerkUseId?: string | null
+    clerkUserId: string
     email: string
+    name?: string | null
     imageUrl?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -8031,9 +8005,9 @@ export namespace Prisma {
 
   export type UserUncheckedCreateWithoutAssignedIssuesInput = {
     id?: string
-    name?: string | null
-    clerkUseId?: string | null
+    clerkUserId: string
     email: string
+    name?: string | null
     imageUrl?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -8043,6 +8017,33 @@ export namespace Prisma {
   export type UserCreateOrConnectWithoutAssignedIssuesInput = {
     where: UserWhereUniqueInput
     create: XOR<UserCreateWithoutAssignedIssuesInput, UserUncheckedCreateWithoutAssignedIssuesInput>
+  }
+
+  export type UserCreateWithoutCreatedIssuesInput = {
+    id?: string
+    clerkUserId: string
+    email: string
+    name?: string | null
+    imageUrl?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    assignedIssues?: IssueCreateNestedManyWithoutAssigneeInput
+  }
+
+  export type UserUncheckedCreateWithoutCreatedIssuesInput = {
+    id?: string
+    clerkUserId: string
+    email: string
+    name?: string | null
+    imageUrl?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    assignedIssues?: IssueUncheckedCreateNestedManyWithoutAssigneeInput
+  }
+
+  export type UserCreateOrConnectWithoutCreatedIssuesInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutCreatedIssuesInput, UserUncheckedCreateWithoutCreatedIssuesInput>
   }
 
   export type ProjectCreateWithoutIssuesInput = {
@@ -8088,8 +8089,8 @@ export namespace Prisma {
     name: string
     startDate: Date | string
     endDate: Date | string
-    projectId: string
     status?: $Enums.SprintStatus
+    projectId: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -8097,39 +8098,6 @@ export namespace Prisma {
   export type SprintCreateOrConnectWithoutIssuesInput = {
     where: SprintWhereUniqueInput
     create: XOR<SprintCreateWithoutIssuesInput, SprintUncheckedCreateWithoutIssuesInput>
-  }
-
-  export type UserUpsertWithoutCreatedIssuesInput = {
-    update: XOR<UserUpdateWithoutCreatedIssuesInput, UserUncheckedUpdateWithoutCreatedIssuesInput>
-    create: XOR<UserCreateWithoutCreatedIssuesInput, UserUncheckedCreateWithoutCreatedIssuesInput>
-    where?: UserWhereInput
-  }
-
-  export type UserUpdateToOneWithWhereWithoutCreatedIssuesInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutCreatedIssuesInput, UserUncheckedUpdateWithoutCreatedIssuesInput>
-  }
-
-  export type UserUpdateWithoutCreatedIssuesInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    clerkUseId?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: StringFieldUpdateOperationsInput | string
-    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    assignedIssues?: IssueUpdateManyWithoutAssigneeNestedInput
-  }
-
-  export type UserUncheckedUpdateWithoutCreatedIssuesInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    clerkUseId?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: StringFieldUpdateOperationsInput | string
-    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    assignedIssues?: IssueUncheckedUpdateManyWithoutAssigneeNestedInput
   }
 
   export type UserUpsertWithoutAssignedIssuesInput = {
@@ -8145,9 +8113,9 @@ export namespace Prisma {
 
   export type UserUpdateWithoutAssignedIssuesInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    clerkUseId?: NullableStringFieldUpdateOperationsInput | string | null
+    clerkUserId?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -8156,13 +8124,46 @@ export namespace Prisma {
 
   export type UserUncheckedUpdateWithoutAssignedIssuesInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    clerkUseId?: NullableStringFieldUpdateOperationsInput | string | null
+    clerkUserId?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdIssues?: IssueUncheckedUpdateManyWithoutReporterNestedInput
+  }
+
+  export type UserUpsertWithoutCreatedIssuesInput = {
+    update: XOR<UserUpdateWithoutCreatedIssuesInput, UserUncheckedUpdateWithoutCreatedIssuesInput>
+    create: XOR<UserCreateWithoutCreatedIssuesInput, UserUncheckedCreateWithoutCreatedIssuesInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutCreatedIssuesInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutCreatedIssuesInput, UserUncheckedUpdateWithoutCreatedIssuesInput>
+  }
+
+  export type UserUpdateWithoutCreatedIssuesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    clerkUserId?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    assignedIssues?: IssueUpdateManyWithoutAssigneeNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutCreatedIssuesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    clerkUserId?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    assignedIssues?: IssueUncheckedUpdateManyWithoutAssigneeNestedInput
   }
 
   export type ProjectUpsertWithoutIssuesInput = {
@@ -8225,8 +8226,8 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
     endDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    projectId?: StringFieldUpdateOperationsInput | string
     status?: EnumSprintStatusFieldUpdateOperationsInput | $Enums.SprintStatus
+    projectId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -8236,8 +8237,8 @@ export namespace Prisma {
     title: string
     description?: string | null
     status: $Enums.IssueStatus
-    priority: $Enums.IssuePriority
     order: number
+    priority: $Enums.IssuePriority
     assigneeId?: string | null
     projectId: string
     sprintId?: string | null
@@ -8250,8 +8251,8 @@ export namespace Prisma {
     title: string
     description?: string | null
     status: $Enums.IssueStatus
-    priority: $Enums.IssuePriority
     order: number
+    priority: $Enums.IssuePriority
     reporterId: string
     projectId: string
     sprintId?: string | null
@@ -8264,8 +8265,8 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: EnumIssueStatusFieldUpdateOperationsInput | $Enums.IssueStatus
-    priority?: EnumIssuePriorityFieldUpdateOperationsInput | $Enums.IssuePriority
     order?: IntFieldUpdateOperationsInput | number
+    priority?: EnumIssuePriorityFieldUpdateOperationsInput | $Enums.IssuePriority
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     assignee?: UserUpdateOneWithoutAssignedIssuesNestedInput
@@ -8278,8 +8279,8 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: EnumIssueStatusFieldUpdateOperationsInput | $Enums.IssueStatus
-    priority?: EnumIssuePriorityFieldUpdateOperationsInput | $Enums.IssuePriority
     order?: IntFieldUpdateOperationsInput | number
+    priority?: EnumIssuePriorityFieldUpdateOperationsInput | $Enums.IssuePriority
     assigneeId?: NullableStringFieldUpdateOperationsInput | string | null
     projectId?: StringFieldUpdateOperationsInput | string
     sprintId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -8292,8 +8293,8 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: EnumIssueStatusFieldUpdateOperationsInput | $Enums.IssueStatus
-    priority?: EnumIssuePriorityFieldUpdateOperationsInput | $Enums.IssuePriority
     order?: IntFieldUpdateOperationsInput | number
+    priority?: EnumIssuePriorityFieldUpdateOperationsInput | $Enums.IssuePriority
     assigneeId?: NullableStringFieldUpdateOperationsInput | string | null
     projectId?: StringFieldUpdateOperationsInput | string
     sprintId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -8306,8 +8307,8 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: EnumIssueStatusFieldUpdateOperationsInput | $Enums.IssueStatus
-    priority?: EnumIssuePriorityFieldUpdateOperationsInput | $Enums.IssuePriority
     order?: IntFieldUpdateOperationsInput | number
+    priority?: EnumIssuePriorityFieldUpdateOperationsInput | $Enums.IssuePriority
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     reporter?: UserUpdateOneRequiredWithoutCreatedIssuesNestedInput
@@ -8320,8 +8321,8 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: EnumIssueStatusFieldUpdateOperationsInput | $Enums.IssueStatus
-    priority?: EnumIssuePriorityFieldUpdateOperationsInput | $Enums.IssuePriority
     order?: IntFieldUpdateOperationsInput | number
+    priority?: EnumIssuePriorityFieldUpdateOperationsInput | $Enums.IssuePriority
     reporterId?: StringFieldUpdateOperationsInput | string
     projectId?: StringFieldUpdateOperationsInput | string
     sprintId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -8334,8 +8335,8 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: EnumIssueStatusFieldUpdateOperationsInput | $Enums.IssueStatus
-    priority?: EnumIssuePriorityFieldUpdateOperationsInput | $Enums.IssuePriority
     order?: IntFieldUpdateOperationsInput | number
+    priority?: EnumIssuePriorityFieldUpdateOperationsInput | $Enums.IssuePriority
     reporterId?: StringFieldUpdateOperationsInput | string
     projectId?: StringFieldUpdateOperationsInput | string
     sprintId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -8358,10 +8359,10 @@ export namespace Prisma {
     title: string
     description?: string | null
     status: $Enums.IssueStatus
-    priority: $Enums.IssuePriority
     order: number
-    reporterId: string
+    priority: $Enums.IssuePriority
     assigneeId?: string | null
+    reporterId: string
     sprintId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -8404,12 +8405,12 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: EnumIssueStatusFieldUpdateOperationsInput | $Enums.IssueStatus
-    priority?: EnumIssuePriorityFieldUpdateOperationsInput | $Enums.IssuePriority
     order?: IntFieldUpdateOperationsInput | number
+    priority?: EnumIssuePriorityFieldUpdateOperationsInput | $Enums.IssuePriority
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    reporter?: UserUpdateOneRequiredWithoutCreatedIssuesNestedInput
     assignee?: UserUpdateOneWithoutAssignedIssuesNestedInput
+    reporter?: UserUpdateOneRequiredWithoutCreatedIssuesNestedInput
     sprint?: SprintUpdateOneWithoutIssuesNestedInput
   }
 
@@ -8418,10 +8419,10 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: EnumIssueStatusFieldUpdateOperationsInput | $Enums.IssueStatus
-    priority?: EnumIssuePriorityFieldUpdateOperationsInput | $Enums.IssuePriority
     order?: IntFieldUpdateOperationsInput | number
-    reporterId?: StringFieldUpdateOperationsInput | string
+    priority?: EnumIssuePriorityFieldUpdateOperationsInput | $Enums.IssuePriority
     assigneeId?: NullableStringFieldUpdateOperationsInput | string | null
+    reporterId?: StringFieldUpdateOperationsInput | string
     sprintId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -8432,10 +8433,10 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: EnumIssueStatusFieldUpdateOperationsInput | $Enums.IssueStatus
-    priority?: EnumIssuePriorityFieldUpdateOperationsInput | $Enums.IssuePriority
     order?: IntFieldUpdateOperationsInput | number
-    reporterId?: StringFieldUpdateOperationsInput | string
+    priority?: EnumIssuePriorityFieldUpdateOperationsInput | $Enums.IssuePriority
     assigneeId?: NullableStringFieldUpdateOperationsInput | string | null
+    reporterId?: StringFieldUpdateOperationsInput | string
     sprintId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -8446,10 +8447,10 @@ export namespace Prisma {
     title: string
     description?: string | null
     status: $Enums.IssueStatus
-    priority: $Enums.IssuePriority
     order: number
-    reporterId: string
+    priority: $Enums.IssuePriority
     assigneeId?: string | null
+    reporterId: string
     projectId: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -8460,12 +8461,12 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: EnumIssueStatusFieldUpdateOperationsInput | $Enums.IssueStatus
-    priority?: EnumIssuePriorityFieldUpdateOperationsInput | $Enums.IssuePriority
     order?: IntFieldUpdateOperationsInput | number
+    priority?: EnumIssuePriorityFieldUpdateOperationsInput | $Enums.IssuePriority
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    reporter?: UserUpdateOneRequiredWithoutCreatedIssuesNestedInput
     assignee?: UserUpdateOneWithoutAssignedIssuesNestedInput
+    reporter?: UserUpdateOneRequiredWithoutCreatedIssuesNestedInput
     project?: ProjectUpdateOneRequiredWithoutIssuesNestedInput
   }
 
@@ -8474,10 +8475,10 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: EnumIssueStatusFieldUpdateOperationsInput | $Enums.IssueStatus
-    priority?: EnumIssuePriorityFieldUpdateOperationsInput | $Enums.IssuePriority
     order?: IntFieldUpdateOperationsInput | number
-    reporterId?: StringFieldUpdateOperationsInput | string
+    priority?: EnumIssuePriorityFieldUpdateOperationsInput | $Enums.IssuePriority
     assigneeId?: NullableStringFieldUpdateOperationsInput | string | null
+    reporterId?: StringFieldUpdateOperationsInput | string
     projectId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -8488,10 +8489,10 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     status?: EnumIssueStatusFieldUpdateOperationsInput | $Enums.IssueStatus
-    priority?: EnumIssuePriorityFieldUpdateOperationsInput | $Enums.IssuePriority
     order?: IntFieldUpdateOperationsInput | number
-    reporterId?: StringFieldUpdateOperationsInput | string
+    priority?: EnumIssuePriorityFieldUpdateOperationsInput | $Enums.IssuePriority
     assigneeId?: NullableStringFieldUpdateOperationsInput | string | null
+    reporterId?: StringFieldUpdateOperationsInput | string
     projectId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string

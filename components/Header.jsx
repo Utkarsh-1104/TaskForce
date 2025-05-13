@@ -1,14 +1,16 @@
-'use client'
 
 import { SignedIn, SignedOut, SignInButton } from '@clerk/nextjs'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, {  } from 'react'
 import { Button } from './ui/button'
 import { PenBox } from 'lucide-react'
 import UserMenu from './UserMenu'
+import { checkUser } from '@/lib/checkUser'
 
-const Header = () => {
+const Header = async () => {
+  await checkUser()
+
   return (
     <header className="container mx-auto sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 px-4 sm:px-6 lg:px-8">
       <nav className="flex flex-wrap items-center justify-between h-20">
