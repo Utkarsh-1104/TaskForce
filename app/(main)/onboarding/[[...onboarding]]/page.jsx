@@ -16,7 +16,11 @@ const Onboarding = () => {
 
   return (
     <div className='flex items-center justify-center h-screen'>
-      <OrganizationList hidePersonal />
+      <OrganizationList
+        hidePersonal 
+        afterCreateOrganizationUrl="/organization/:slug"
+        afterSelectOrganizationUrl="/organization/:slug"
+      />
     </div>
   )
 }
