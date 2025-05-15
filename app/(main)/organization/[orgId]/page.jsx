@@ -17,7 +17,7 @@ const Organization = async ({params}) => {
 
   return (
     <div className='container mx-auto mt-10'>
-      <div className='mb-4 flex flex-col sm:flex-row items-start justify-between'>
+      <div className='mb-4 flex flex-col sm:flex-row items-center justify-between'>
         <h1 className='text-5xl gradient-title pb-2 font-bold'>{organization.name}'s Project </h1>
         <OrgSwitcher />
       </div>

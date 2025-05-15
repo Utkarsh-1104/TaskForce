@@ -31,7 +31,7 @@ const Header = async () => {
         {/* Right Section */}
         <div className="flex items-center gap-2 sm:gap-4 mt-4 sm:mt-0">
           <Link href="/project/create">
-            <Button size="sm" sm="lg" className="flex items-center gap-2">
+            <Button size="sm" sm="lg" className="flex items-center gap-2 cursor-pointer">
               <PenBox size={20} className="" />
               <span className="text-sm sm:text-base font-semibold">
                 Get Started

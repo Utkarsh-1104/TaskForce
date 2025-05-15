@@ -18,9 +18,26 @@ const OrgSwitcher = () => {
                 }
                 createOrganizationUrl="/onboarding"
                 appearance={{
-                    elements: {
-                        organizationSwitcherTrigger: "bg-gray-800 hover:bg-gray-900 text-white",
+                    variables: {
+                        colorPrimary: "white",
+                        colorText: "black",
+                        fontSize: "1rem",
+                        fontFamily: "Roboto, sans-serif",
+                        colorNeutral: "black",
+                        fontWeight: "700",
+                        colorShimmer: "red",
                         
+                    },
+                    elements: {
+                        organizationSwitcherTrigger: {
+                            backgroundColor: "transparent",
+                            borderRadius: "0.5rem",
+                            boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
+                            padding: "0.8rem 1.2rem",
+                            fontWeight: "700",
+                            color: "black",
+                            border: "1px solid black",
+                        },
                     }
                 }}
             />
